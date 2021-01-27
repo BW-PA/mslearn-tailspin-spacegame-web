@@ -9,7 +9,7 @@ pool:
   variables:
     buildConfiguration: 'Release'
     wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
-    dotnetSdkVersion: '3.1.300'
+    dotnetSdkVersion: 3.1.300
   
 steps:
   - script: echo $(dotnetSdkVersion)
@@ -19,7 +19,7 @@ steps:
     displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
     inputs:
       packageType: sdk
-      version: '$(dotnetSdkVersion)'
+      version: $(dotnetSdkVersion)
   
   - task: Npm@1
     displayName: 'Run npm install'
