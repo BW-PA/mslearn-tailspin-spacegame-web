@@ -6,20 +6,16 @@ pool:
   demands:
     - npm
   
-  variables:
-    buildConfiguration: 'Release'
-    wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
-    dotnetSdkVersion: 3.1.300
-  
-steps:
-  - script: echo $(dotnetSdkVersion)
-    name: EchoTesting
+variables:
+  buildConfiguration: 'Release'
+  wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
+  dotnetSdkVersion: '3.1.300'
 
+steps:
   - task: UseDotNet@2
     displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
     inputs:
-      packageType: sdk
-      version: $(dotnetSdkVersion)
+      version: '$(dotnetSdkVersion)'
   
   - task: Npm@1
     displayName: 'Run npm install'
@@ -43,7 +39,7 @@ steps:
       projects: '**/*.csproj'
   
   - task: DotNetCoreCLI@2
-    displayName: 'Build the project - Release'
+    displayName: 'Build the project - $(buildConfiguration)'
     inputs:
       command: 'build'
       arguments: '--no-restore --configuration $(buildConfiguration)'
@@ -57,7 +53,7 @@ steps:
       publishWebProjects: false
       arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
       zipAfterPublish: true
-    
+  
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact: drop'
     condition: succeeded()
