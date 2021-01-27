@@ -1,5 +1,8 @@
-#trigger:
-#  - '*'
+stages:
+  - stage: Build
+
+trigger:
+  - '*'
   
 pool:
   vmImage: 'ubuntu-18.04'
