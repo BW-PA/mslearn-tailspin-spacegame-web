@@ -12,8 +12,8 @@ pool:
     dotnetSdkVersion: '3.1.300'
   
 steps:
-  - script: echo $(wwwrootDir)
-    name: EchowwwrootDir
+  - script: echo 'Testing'
+    name: EchoTesting
 
   - task: UseDotNet@2
     displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
