@@ -12,7 +12,7 @@ pool:
     dotnetSdkVersion: '3.1.300'
   
 steps:
-  - script: echo 'Testing'
+  - script: echo $(dotnetSdkVersion)
     name: EchoTesting
 
   - task: UseDotNet@2
