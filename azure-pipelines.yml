@@ -13,7 +13,7 @@ pool:
   
 steps:
   - script: echo $(wwwrootDir)
-    name: Echo wwwrootDir
+    name: EchowwwrootDir
 
   - task: UseDotNet@2
     displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
