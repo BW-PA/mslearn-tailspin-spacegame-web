@@ -5,7 +5,8 @@ pool:
   vmImage: 'ubuntu-18.04'
   demands:
     - npm
-  
+
+# It finally worked.  Must have copied an invalid character when doing a line by line copy and paste
 variables:
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
